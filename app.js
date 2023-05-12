@@ -15,17 +15,17 @@ Map(2) {
 
 */
 
-const hasDuplicate = (number) => !(new Set(number).size === number.length);
+const hasDuplicate = (number) => new Set(number).size !== number.length;
 
 const isVowel = (vowel) => "aeiou".includes(vowel);
 
 const vowelCount = (string) => {
   const vowelCounter = new Map();
-  for (let vowel of string) {
-    if (isVowel(vowel)) {
-      vowelCounter.has(vowel)
-        ? vowelCounter.set(vowel, vowelCounter.get(vowel) + 1)
-        : vowelCounter.set(vowel, 1);
+  for (let char of string) {
+    if (isVowel(char)) {
+      vowelCounter.has(char)
+        ? vowelCounter.set(char, vowelCounter.get(char) + 1)
+        : vowelCounter.set(char, 1);
     }
   }
   return vowelCounter;
